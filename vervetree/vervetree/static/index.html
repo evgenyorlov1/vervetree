@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,26 +13,26 @@
     <title>Unicatalogue</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/unicatalogue.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/light.css"  />
-	<link rel="stylesheet" href="css/dark.css"  />
-	<link rel="stylesheet" href="css/transparent.css"  />
-	<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-	<link rel="stylesheet" type="text/css" href="css/videoGallery_buttons.css" />
+    <link href="{% static 'css/unicatalogue.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/light.css' %}"  />
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}"  />
+	<link rel="stylesheet" href="{% static 'css/transparent.css' %}"  />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.jscrollpane.css' %}" media="all" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/videoGallery_buttons.css' %}" />
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	
 	
-	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/jquery.address.js"></script><!-- deeplink -->
-	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script><!-- scroll -->
-	<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script><!-- scroll -->
-	<script type="text/javascript" src="js/froogaloop2.min.js"></script><!-- vimeo -->
-	<script type="text/javascript" src="js/jquery.dotdotdot-1.5.1.js"></script><!-- description shortener -->
-	<script type="text/javascript" src="js/jquery.aprvp.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.address.js' %}"></script><!-- deeplink -->
+	<script type="text/javascript" src="{% static 'js/jquery.mousewheel.min.js' %}"></script><!-- scroll -->
+	<script type="text/javascript" src="{% static 'js/jquery.jscrollpane.min.js' %}"></script><!-- scroll -->
+	<script type="text/javascript" src="{% static 'js/froogaloop2.min.js' %}"></script><!-- vimeo -->
+	<script type="text/javascript" src="{% static 'js/jquery.dotdotdot-1.5.1.js' %}"></script><!-- description shortener -->
+	<script type="text/javascript" src="{% static 'js/jquery.aprvp.min.js' %}"></script>
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
