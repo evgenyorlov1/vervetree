@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.views.generic import View
 from django.shortcuts import render
 
@@ -97,6 +96,15 @@ class UniConnect(View):
 	
 	def get(self, request):
 		return render(request, 'UniConnect.html')
+
+	def post(self, request):
+		pass
+
+
+class Test(View):
+
+	def get(self, request):
+		return render(request, 'test.html')
 
 	def post(self, request):
 		pass
