@@ -1,0 +1,608 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Unicatalogue</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="{% static 'pages/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'pages/css/unicatalogue.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'pages/css/light.css' %}"  />
+	<link rel="stylesheet" href="{% static 'pages/css/dark.css' %}"  />
+	<link rel="stylesheet" href="{% static 'pages/css/transparent.css' %}"  />
+	<link rel="stylesheet" type="text/css" href="{% static 'pages/css/jquery.jscrollpane.css' %}" media="all" />
+	<link rel="stylesheet" type="text/css" href="{% static 'pages/css/font-awesome.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'pages/css/videoGallery_buttons.css' %}" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	
+	
+	<script type="text/javascript" src="{% static 'pages/js/jquery-1.11.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'pages/js/jquery.address.js' %}"></script><!-- deeplink -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.mousewheel.min.js' %}"></script><!-- scroll -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.jscrollpane.min.js' %}"></script><!-- scroll -->
+	<script type="text/javascript" src="{% static 'pages/js/froogaloop2.min.js' %}"></script><!-- vimeo -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.dotdotdot-1.5.1.js' %}"></script><!-- description shortener -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.aprvp.min.js' %}"></script>
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'pages/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <script type="text/javascript">
+        
+			var hap_players = [];    
+			jQuery(document).ready(function($) {
+				
+				/* SETTINGS */
+				var rvp_settings = {
+					/* mediaId: unique string for player identification (if multiple player instances were used, then strings need to be different!) */
+					mediaId:'player1',
+					/* useDeeplink: true, false */
+					useDeeplink:false,
+					/*activePlaylist: Active playlist to start with. If no deeplink is used, enter element 'id' attribute, or if deeplink is used enter (data-address) deeplink string like 'playlist1'.  */
+					activePlaylist:'playlist0',
+					/*activeItem: Active video to start with. Enter number, -1 = no video loaded, 0 = first video, 1 = second video etc */
+					activeItem:0,
+					/* GENERAL SETTINGS */
+					/*defaultVolume: 0-1 */
+					defaultVolume:0.5,
+					/*autoPlay: true/false (defaults to false on mobile)*/
+					autoPlay:false,
+					/*randomPlay: true/false */
+					randomPlay:false,
+					/* loopingOn: on playlist end rewind to beginning (last item in playlist) */
+					loopingOn: true,
+					/*autoAdvanceToNextVideo: true/false (use this to loop video) */
+					autoAdvanceToNextVideo:true,
+					/*autoOpenDescription: true/false  */
+					autoOpenDescription:false,
+					usePlaylist:true,
+					useControls:true,
+					/*autoHideControls: auto hide player controls on mouse out: true/false. Defaults to false on mobile. */
+					autoHideControls:false,
+					/*controlsTimeout: time after which controls and playlist hides in fullscreen if screen is inactive, in miliseconds. */
+					controlsTimeout:3000,
+					/*playlistOrientation: vertical/horizontal  */
+					playlistOrientation:'vertical',
+					/*scrollType: scroll/buttons  */
+					scrollType:'scroll',
+					
+					/* YOUTUBE SETTINGS */
+					ytAppId:'',/* youtube api key: https://developers.google.com/youtube/registering_an_application */
+					ytTheme:'dark',
+					ytShowinfo:true,
+					
+					/*playlistList: dom element which holds list of playlists */
+					playlistList:'#playlist_list',
+					
+					/* showControlsInAdvert: true/false (show controls while video advert plays)  */
+					showControlsInAdvert:true,
+					/* disableSeekbarInAdvert: true/false (disable seekbar while video advert plays)  */
+					disableSeekbarInAdvert:true,
+					/* showSkipButtonInAdvert: true/false (show skip button while video advert plays)  */
+					showSkipButtonInAdvert:true,
+					advertSkipBtnText:'SKIP AD >',
+					advertSkipVideoText:'You can skip to video in',
+					
+					logoPath: 'http://www.interactivepixel.net/images/jqueryPreviews/helper/apvplp_logo.png',
+				    logoPosition: 'tl',/* tl, tr, bl, br */
+				    logoXOffset: 5,
+				    logoYOffset: 5,
+				    logoUrl: 'http://www.google.com',
+				    logoTarget: '_blank',
+					
+					useShare: true,
+					/*fsAppId: facebook application id (if you use facebook share, https://developers.facebook.com/apps) */
+					fsAppId:''
+				};
+				
+				hap_players[0] = $('#mainWrapper').aprvp(rvp_settings);
+
+			});
+
+        </script>
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<div class="top-links">
+				          <a href="#" class="btn btn-default btn-sm btn-register">REGISTER</a>
+						  <a href="#" class="btn btn-default btn-sm btn-sign">SIGN IN</a>       
+					 </div>
+                <ul class="nav navbar-nav navbar-right">
+				      
+					<li class="page-scroll">
+                        <a href="#portfolio">COURSES</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">UNIVERSITIES</a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="#portfolio">OPEN DAY</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">FUNDING</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row top-head">
+                <div class="col-lg-12">
+                </div>
+				<div class="col-lg-12">
+					<div class="input-group">
+					  <input type="text" class="form-control form-search-index" placeholder="Find your course...">
+					  <span class="input-group-btn">
+						<button class="btn btn-default unicatalogue-button" type="button">Select</button>
+					  </span>
+					 <span class="input-group-btn">
+					        <div class="dropdown header-dropdown">
+							  <button class="btn btn-default dropdown-toggle dropdown-toggle-header" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								<span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu dropdown-menu-header" aria-labelledby="dropdownMenu1">
+								<li><a href="#">Undergraduate</a></li>
+								<li><a href="#">Postgraduate</a></li>
+							  </ul>
+							</div>
+						</span>
+					  <span class="input-group-btn">
+						 <a href="#" class="btn btn-default go-button" style="border-radius: 5px; border: 0px;">SEARCH</a>
+					  </span>
+					</div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+            </div>
+        </div>
+    </header>
+
+    <!-- STUDY AREA Section -->
+   
+     <div class="container container-main">
+            
+			<div class="col-lg-12 banner">
+			<img class="img-responsive" src="{% static 'pages/img/banner.jpg' %} "/>
+            </div>
+			<div class="row row-index">
+			   <div class="col-lg-12 col-study">
+			      <h3 class="no-span">STUDY AREA</h3>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+						         <img class="img-responsive study-area" src="{% static 'pages/img/acting_and_music.png' %}"/><h4> Acting & Music</h4>
+                              </div>
+                            </div>							  
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						 <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/fashion_design_and_jewellery.png' %}"/><h4> Fashion Design & Jewellery</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						  <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/law_and_social_sciences.png' %}"/><h4> Law & Social Sciences</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/business_and_management.png' %}"/><h4> Business & Management</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/computing_and_engineering.png' %}"/><h4> Computing & Engineering</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/languages_and_humanities.png' %}"/><h4> Languages & Humanities</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+						  <img class="img-responsive study-area" src="{% static 'pages/img/art_architecture_and_design.png' %}"/><h4> Art, Architecture & Design</h4>
+                              </div>
+                            </div>							  
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/education_and_pgce.png' %}"/><h4> Education & PGCE</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/health_and_medicine.png' %}"/><h4> Health & Medicine</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/media_and_communication.png' %}"/><h4> Media & Communications</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/science_and_built_environment.png' %}"/><h4> Science & Built Environment</h4>
+							 </div>
+                            </div>	
+						</div>
+						<div class="col-sm-4 portfolio-item">
+						   <div class="panel panel-default" style="background: #fff;">
+                             <div class="panel-body">
+							<img class="img-responsive study-area" src="{% static 'pages/img/tourism_and_sports.png' %}"/><h4> Tourism & Sports</h4>
+							 </div>
+                            </div>	
+						</div>
+			</div>
+			<div class="col-lg-12 col-study">
+			<h3 class="no-span">NEW COURSES</h3>
+				<div class="row row-main">
+					 <div class="col-lg-12 text-center">
+						<div class="col-md-3 col-courses">
+						  <div class="panel panel-default" style="background:#f8f8f8;">
+                             <div class="panel-body">
+									<h4>Course</h4>
+									<h5> Tourism & Sports</h5>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+									<ul>
+										<li>Duration: 1 Year</li>
+										<li>Level: Undergraduate</li>
+										</ul>
+							  </div>
+							</div>
+						</div>	
+						<div class="col-md-3 col-courses">
+						   <div class="panel panel-default" style="background:#f8f8f8;">
+                             <div class="panel-body">
+								<h4>Course</h4>
+								<h5> Tourism & Sports</h5>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+								<ul>
+								<li>Duration: 1 Year</li>
+								<li>Level: Undergraduate</li>
+								</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-courses">
+						   <div class="panel panel-default" style="background:#f8f8f8;">
+                             <div class="panel-body">
+								<h4>Course</h4>
+								<h5> Tourism & Sports</h5>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+								<ul>
+								<li>Duration: 1 Year</li>
+								<li>Level: Undergraduate</li>
+								</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-courses">
+						   <div class="panel panel-default" style="background:#f8f8f8;">
+                             <div class="panel-body">
+								<h4>Course</h4>
+								<h5> Tourism & Sports</h5>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+								<ul>
+								<li>Duration: 1 Year</li>
+								<li>Level: Undergraduate</li>
+								</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 text-center">
+					<h3>20 New Courses Available. See more  <a href="#" style="color: #499df1; border-bottom: 3px solid; text-decoration: none;">NEW COURSES</a></h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 col-study">
+				<h3 class="no-span">CONNECT WITH US</h3>
+					<div class="row row-main">
+						 <div class="col-lg-12 text-center">
+						    <div class="col-lg-6 text-center connect" style="padding: 20px;">
+						      <ul class="soc">
+									<li><a href="#"><img class="img-responsive img-social-icon" src="{% static 'pages/Social Media Icons final/1.facebook.png' %}"/></a></li>
+									<li><a href="#"><img class="img-responsive img-social-icon" src="{% static 'pages/Social Media Icons final/5.twitter.png' %}"/></a></li>
+									<li><a href="#"><img class="img-responsive img-social-icon" src="{% static 'pages/Social Media Icons final/4.linkedin.png' %}"/></a></li>
+									<li><a href="#"><img class="img-responsive img-social-icon" src="{% static 'pages/Social Media Icons final/2.youtube.png' %}"/></a></li>
+									<li><a href="#"><img class="img-responsive img-social-icon" src="{% static 'pages/Social Media Icons final/3.instagram.png' %}"/></a></li>
+									<li><a href="#"><img class="img-responsive img-social-icon" src="{% static 'pages/Social Media Icons final/6.wechat.png' %}"/></a></li>
+								</ul>
+							</div>
+							<div class="col-lg-6 connect">
+								<div class="input-group input-subscribe">
+									  <input type="text" class="form-control form-subscribe" placeholder="Your email...">
+									  <span class="input-group-btn">
+										<button class="btn btn-default btn-subscribe" type="button" style="border-radius: 5px; border: 0px;">SUBSCRIBE</button>
+									  </span>
+								</div><!-- /input-group -->
+							</div>
+						 </div>
+				</div>
+			</div>
+			<div class="col-lg-12 col-study">
+				<h3 class="no-span">FEATURED ARTICLES</h3>
+                     <div class="col-lg-4 col-blog" style="background:#00c39d">	
+					 <h3>WHY CHOOSE US</h3>
+					 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					 </p>
+					 <button type="button" class="btn btn-primary">Read more</button>
+					 <i class="fa fa-lightbulb-o"></i>
+                     </div>
+                     <div class="col-lg-4 col-blog" style="background:#2f4860">	
+					 <h3>OUR MISSION</h3>
+					 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					 </p>
+					 <button type="button" class="btn btn-primary">Read more</button>
+					 <i class="fa fa-cog"></i>
+                     </div>
+					<div class="col-lg-4 col-blog" style="background:#fc2e16">
+					<h3>WHAT YOU GET</h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					 </p>
+                     <button type="button" class="btn btn-primary">Read more</button>	
+                     <i class="fa fa-thumbs-o-up"></i>
+                     </div> 
+                 </div>
+			
+			<div class="col-lg-12 col-study">
+				<h3 class="no-span">CAMPAIGN</h3>
+					<div class="row row-main">
+											 <div id="mainWrapper"></div>
+											 <div class="ap_share"></div>
+							<div id="playlist_list">
+
+								 <!-- local tracks -->
+								 <div id='playlist0' data-address="playlist0">
+
+									 <div class="playlistNonSelected" data-address="local1" data-type="local" data-mp4="../media/video/1/main/01.mp4" data-mp4-high="../media/video/1/main/01.mp4" data-preview="../media/video/1/main/01.jpg" data-thumb="../media/video/1/preview/01.jpg" >
+									 
+										<div class="ap_title">Video title goes here</div>  
+									 
+										<div class="ap_short_desc">Commodo vitae, commodo in, tempor eu, urna. Etiam justo ipsum maecenas nec tellus.</div>
+									 
+										<div class="ap_desc">
+											<span class='infoTitle'>Nulla mauris justo</span><br/><br/>Ullamcorper nec, sollicitudin a, blandit ut, metus. Ut quis velit. Maecenas magna dui, laoreet ac, malesuada quis, blandit vitae, leo. Mauris blandit mollis eros. Maecenas porttitor varius odio. Nunc auctor gravida odio. Sed ac ante viverra dolor suscipit gravida. Vestibulum accumsan enim nec ipsum. Nunc cursus sapien. Etiam fermentum luctus arcu. Curabitur vitae velit eget nisl ornare sollicitudin. Etiam vitae erat. Integer sapien. Vivamus non massa non est consequat pulvinar. Suspendisse accumsan interdum odio. Suspendisse egestas elit in metus. Nam faucibus. Aenean dictum. Nunc libero. Fusce tellus justo, sagittis sollicitudin, ultricies et, lacinia quis, diam. Vestibulum id nibh sed turpis laoreet blandit. Suspendisse porta, quam ac ultricies sagittis, libero nisi gravida sem, in convallis sem ante nec purus. Suspendisse in tellus vitae purus porttitor pharetra. Curabitur in ipsum. Fusce lobortis, ligula eu facilisis semper, arcu ipsum ornare lorem, ultricies tempor diam arcu vitae est. Aliquam non sapien. Phasellus quam. Praesent eu ligula id mauris tincidunt hendrerit. Fusce nec enim. Nam posuere. Morbi at ipsum vitae diam tempus mollis. Pellentesque sollicitudin condimentum neque. Sed auctor consequat lorem. Donec quis lacus fringilla augue venenatis vulputate. Duis lobortis consectetur libero. Aliquam erat volutpat. Etiam interdum bibendum purus. Vivamus id tellus et tellus dictum molestie. Nam sit amet arcu dictum mauris rhoncus tristique. Nunc rhoncus porta velit. 
+						Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris consequat. Quisque leo erat, egestas quis, pellentesque eu, suscipit sit amet, sem. Proin dapibus enim id nibh. Fusce diam. Duis sagittis erat eget est. Nam pulvinar egestas elit. Quisque turpis nisl, ornare eu, ultrices eu, sodales sit amet, neque. Quisque id dui non mauris congue venenatis. Praesent cursus, ipsum sed hendrerit sollicitudin, lacus orci gravida orci, nec convallis tellus ligula vulputate risus. Phasellus arcu. Sed commodo sapien rutrum nulla. Donec dictum lectus vel purus. Cras massa nisi, ultrices nec, bibendum eu, mollis in, nibh. Fusce tempus, elit non egestas mattis, ligula neque tincidunt nisl, in aliquam neque dui ut diam. Pellentesque aliquam fermentum leo. Proin placerat sollicitudin nisi. Sed at diam eu nisl feugiat tempor. Pellentesque non leo.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://codecanyon.net/user/Tean' target='_blank'>Link</a>
+										</div>
+									 
+										<!-- video advert -->
+										<div class="ap_adv" data-type="local" data-mp4="../media/video/advert/01.mp4" data-preview="../media/video/advert/01.jpg" data-link="http://www.google.com" data-target='_blank' data-skipEnableTime='3' ></div>
+										
+									</div>
+
+									<div class="playlistNonSelected" data-address="local2" data-type="local" data-mp4-high="../media/video/1/main/02.mp4" data-mp4="../media/video/1/main/02.mp4" data-mp4-low="../media/video/1/main/02.mp4" data-preview="../media/video/1/main/02.jpg" data-thumb="../media/video/1/preview/02.jpg">
+									
+										<div class="ap_title">Video title goes here</div>  
+									 
+										<div class="ap_short_desc">Vestibulum accumsan enim nec ipsum. Nunc cursus sapien. Commodo vitae, commodo in, tempor eu, urna. Etiam justo ipsum maecenas nec tellus.</div>
+
+									 
+										<div class="ap_desc">
+											<span class='infoTitle'>Nulla mauris justo</span><br/><br/>Ullamcorper nec, sollicitudin a, blandit ut, metus. Ut quis velit. Maecenas magna dui, laoreet ac, malesuada quis, blandit vitae, leo. Mauris blandit mollis eros. Maecenas porttitor varius odio. Nunc auctor gravida odio. Sed ac ante viverra dolor suscipit gravida. Pellentesque non leo.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://codecanyon.net/user/Tean' target='_blank'>Link</a>
+										</div>
+									
+										<!-- video advert -->
+										<div class="ap_adv" data-type="local" data-mp4="../media/video/advert/02.mp4" data-preview="../media/video/advert/02.jpg" data-link="http://www.google.com" data-target='_blank' data-skipEnableTime='6' >
+										</div>	
+
+									 </div>
+
+									 <div class="playlistNonSelected" data-address="local3" data-type="local" data-mp4-high="../media/video/1/main/03.mp4" data-mp4="../media/video/1/main/03.mp4" data-mp4-low="../media/video/1/main/03.mp4" data-preview="../media/video/1/main/03.jpg" data-thumb="../media/video/1/preview/03.jpg">
+									 
+										<div class="ap_title">Video title goes here</div>  
+									 
+										<div class="ap_short_desc">Vestibulum accumsan enim nec ipsum. Nunc cursus sapien. Commodo vitae, commodo in, tempor eu, urna. Etiam justo ipsum maecenas nec tellus.</div>
+									 
+										<div class="ap_desc">
+											<span class='infoTitle'>Nulla mauris justo</span><br/><br/>Ullamcorper nec, sollicitudin a, blandit ut, metus. Ut quis velit. Maecenas magna dui, laoreet ac, malesuada quis, blandit vitae, leo. Mauris blandit mollis eros. Maecenas porttitor varius odio. Nunc auctor gravida odio. Sed ac ante viverra dolor suscipit gravida. Vestibulum accumsan enim nec ipsum. Nunc cursus sapien. Etiam fermentum luctus arcu. Curabitur vitae velit eget nisl ornare sollicitudin. Etiam vitae erat. Integer sapien. Vivamus non massa non est consequat pulvinar. Suspendisse accumsan interdum odio. Suspendisse egestas elit in metus. Nam faucibus. Aenean dictum. Nunc libero. Fusce tellus justo, sagittis sollicitudin, ultricies et, lacinia quis, diam. Vestibulum id nibh sed turpis laoreet blandit. Suspendisse porta, quam ac ultricies sagittis, libero nisi gravida sem, in convallis sem ante nec purus. Suspendisse in tellus vitae purus porttitor pharetra. Curabitur in ipsum. Fusce lobortis, ligula eu facilisis semper, arcu ipsum ornare lorem, ultricies tempor diam arcu vitae est. Aliquam non sapien. Phasellus quam. Praesent eu ligula id mauris tincidunt hendrerit. Fusce nec enim. Nam posuere. Morbi at ipsum vitae diam tempus mollis. Pellentesque sollicitudin condimentum neque. Sed auctor consequat lorem. Donec quis lacus fringilla augue venenatis vulputate. Duis lobortis consectetur libero. Aliquam erat volutpat. Etiam interdum bibendum purus. Vivamus id tellus et tellus dictum molestie. Nam sit amet arcu dictum mauris rhoncus tristique. Nunc rhoncus porta velit. 
+						Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris consequat. Quisque leo erat, egestas quis, pellentesque eu, suscipit sit amet, sem. Proin dapibus enim id nibh. Fusce diam. Duis sagittis erat eget est. Nam pulvinar egestas elit. Quisque turpis nisl, ornare eu, ultrices eu, sodales sit amet, neque. Quisque id dui non mauris congue venenatis. Praesent cursus, ipsum sed hendrerit sollicitudin, lacus orci gravida orci, nec convallis tellus ligula vulputate risus. Phasellus arcu. Sed commodo sapien rutrum nulla. Donec dictum lectus vel purus. Cras massa nisi, ultrices nec, bibendum eu, mollis in, nibh. Fusce tempus, elit non egestas mattis, ligula neque tincidunt nisl, in aliquam neque dui ut diam. Pellentesque aliquam fermentum leo. Proin placerat sollicitudin nisi. Sed at diam eu nisl feugiat tempor. Pellentesque non leo.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://codecanyon.net/user/Tean' target='_blank'>Link</a>
+										</div>
+									 
+									 </div>
+									 
+									 
+									 <div class="playlistNonSelected" data-address="local4" data-type="local" data-mp4-high="../media/video/1/main/04.mp4" data-mp4="../media/video/1/main/04.mp4" data-mp4-low="../media/video/1/main/04.mp4" data-preview="../media/video/1/main/04.jpg" data-thumb="../media/video/1/preview/04.jpg" >
+									 
+										<div class="ap_title">Video title goes here</div>  
+									 
+										<div class="ap_short_desc">Vestibulum accumsan enim nec ipsum. Nunc cursus sapien. Commodo vitae, commodo in, tempor eu, urna. Etiam justo ipsum maecenas nec tellus.</div>
+									 
+										<div class="ap_desc">
+											<span class='infoTitle'>Nulla mauris justo</span><br/><br/>Ullamcorper nec, sollicitudin a, blandit ut, metus. Ut quis velit. Maecenas magna dui, laoreet ac, malesuada quis, blandit vitae, leo. Mauris blandit mollis eros. Maecenas porttitor varius odio. Nunc auctor gravida odio. Sed ac ante viverra dolor suscipit gravida. Pellentesque non leo.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://codecanyon.net/user/Tean' target='_blank'>Link</a>
+										</div>
+									 
+									 </div>
+									 
+									 <div class="playlistNonSelected" data-address="local5" data-type="local" data-mp4-high="../media/video/1/main/05.mp4" data-mp4="../media/video/1/main/05.mp4" data-mp4-low="../media/video/1/main/05.mp4" data-preview="../media/video/1/main/05.jpg" data-thumb="../media/video/1/preview/05.jpg">
+									 
+										<div class="ap_title">Video title goes here</div>  
+									 
+										<div class="ap_short_desc">Vestibulum accumsan enim nec ipsum. Nunc cursus sapien. Commodo vitae, commodo in, tempor eu, urna. Etiam justo ipsum maecenas nec tellus.</div>
+									 
+										<div class="ap_desc">
+											<span class='infoTitle'>Nulla mauris justo</span><br/><br/>Ullamcorper nec, sollicitudin a, blandit ut, metus. Ut quis velit. Maecenas magna dui, laoreet ac, malesuada quis, blandit vitae, leo. Mauris blandit mollis eros. Maecenas porttitor varius odio. Nunc auctor gravida odio. Sed ac ante viverra dolor suscipit gravida. Pellentesque non leo.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='http://codecanyon.net/user/Tean' target='_blank'>Link</a>
+										</div>
+									 
+									 </div>
+								  
+									 
+								   </div>	 
+							 </div>
+						 </div>
+					</div>
+			  </div>
+	</div>
+			<div class="col-lg-12 col-footer">
+				<div class="row row-main">	
+				   <div class="col-sm-2 col-xs-2">
+				    <img class="img-responsive" src="{% static 'pages/img/unicatalogue-transparent-vertical.png' %}"/>
+				   </div>
+				   <div class="col-sm-3 col-xs-3 sub-footer sub-footer-first">
+				       <ul>
+					    <h5>ACCOUNT</h5>
+						<li><p><a>Sign in</a></p></li>
+						<li><p><a>Register</a></p></li>
+						<li><p><a>Password reset</a></p></li>
+				       </ul>
+					   <ul>
+					    <h5>SERVICES</h5>
+						<li><p><a>Contact </a></p></li>
+						<li><p><a>FAQ</a></p></li>
+						<li><p><a>Advertise</a></p></li>
+				       </ul>
+				   </div>
+				   <div class="col-sm-3 col-xs-3 sub-footer">
+				       <ul>
+					   <h5>INFORMATION</h5>
+						<li><p><a>Open day</a></p></li>
+						<li><p><a>Funding</a></p></li>
+						<li><p><a>Blog</a></p></li>
+						<li><p><a>Reviews </a></p></li>
+						<li><p><a>Prospectus</a></p></li>
+						<li><p><a>Universities</a></p></li>
+				       </ul>
+				   </div>
+				   <div class="col-sm-4 col-xs-4 sub-footer sub-footer-last">
+				        <ul>
+						<h5>POLICIES</h5>
+						<li><p><a>Privacy policy </a></p></li>
+						<li><p><a>Data & Cookie policy</a></p></li>
+						<li><p><a>Terms & Conditions</a></p></li>
+				       </ul>
+					   <ul>
+						<h5>ABOUT US</h5>
+						<li><p><a>Our Company</a></p></li>
+				       </ul>
+				   </div>
+				</div>
+			</div>
+			<div class="col-lg-12 col-footer col-footer-mobile">
+				<div class="row row-main">	
+				   <div class="col-sm-2 col-xs-2">
+				    <img class="img-responsive" src="{% static 'pages/img/unicatalogue-transparent-vertical.png' %}"/>
+				   </div>
+				   <div class="col-xs-5 sub-footer">
+				       <ul>
+					    <h5>ACCOUNT</h5>
+						<li><p><a>Sign in</a></p></li>
+						<li><p><a>Register</a></p></li>
+						<li><p><a>Password reset</a></p></li>
+				       </ul>
+					    <ul>
+					   <h5>INFORMATION</h5>
+						<li><p><a>Open day</a></p></li>
+						<li><p><a>Funding</a></p></li>
+						<li><p><a>Blog</a></p></li>
+						<li><p><a>Reviews </a></p></li>
+						<li><p><a>Prospectus</a></p></li>
+						<li><p><a>Universities</a></p></li>
+				       </ul>
+				   </div>
+				   <div class="col-xs-5 sub-footer">
+				       <ul>
+					    <h5>SERVICES</h5>
+						<li><p><a>Contact </a></p></li>
+						<li><p><a>FAQ</a></p></li>
+						<li><p><a>Advertise</a></p></li>
+				       </ul>
+				        <ul>
+						<h5>POLICIES</h5>
+						<li><p><a>Privacy policy </a></p></li>
+						<li><p><a>Data & Cookie policy</a></p></li>
+						<li><p><a>Terms & Conditions</a></p></li>
+				       </ul>
+					   <ul>
+						<h5>ABOUT US</h5>
+						<li><p><a>Our Company</a></p></li>
+				       </ul>
+				   </div>
+				</div>
+			</div>
+        </div>
+ 
+
+    
+
+    <!-- jQuery -->
+    <script src="{% static 'pages/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'pages/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'pages/js/classie.js' %}"></script>
+    <script src="{% static 'pages/js/cbpAnimatedHeader.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'pages/js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'pages/js/contact_me.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'pages/js/unicatalogue.js' %}"></script>
+
+</body>
+
+</html>

@@ -99,12 +99,3 @@ class UniConnect(View):
 
 	def post(self, request):
 		pass
-
-
-class Test(View):
-
-	def get(self, request):
-		return render(request, 'test.html')
-
-	def post(self, request):
-		pass

@@ -19,6 +19,5 @@ urlpatterns = [
     url(r'^CookiePolicy/', views.CookiePolicy.as_view(), name='cookiePolicy'),
     url(r'^TermsOfService/', views.TermsOfService.as_view(), name='termsOfService'),
     url(r'^UniConnect/', views.UniConnect.as_view(), name='uniConnect'),
-    url(r'^test/', views.Test.as_view(), name='test')
 
 ]
