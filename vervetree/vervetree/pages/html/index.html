@@ -1,15 +1,4 @@
 {% load staticfiles %}
-{% url 'pages:index' as index_url %}
-{% url 'pages:Join' as join_url %}
-{% url 'pages:Scholarship' as Scholarship_url %}
-{% url 'pages:PasswordResset' as PasswordResset_url %}
-{% url 'pages:ContactForm' as ContactForm_url %}
-{% url 'pages:Prospectus' as Prospectus_url %}
-{% url 'pages:Uni' as Uni_url %}
-{% url 'pages:PrivacyPolicy' as PrivacyPolicy_url %}
-{% url 'pages:CookiePolicy' as CookiePolicy_url %}
-{% url 'pages:TermsOfService' as TermsOfService_url %}
-{% url 'pages:UniConnect' as UniConnect_url %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,14 +134,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ index_url }}"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
+                <a class="navbar-brand" href="{% url 'index' %}"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<div class="top-links">
-				          <a href="{{ join_url }}" class="btn btn-default btn-sm btn-register">REGISTER</a>
-						  <a href="{{ join_url }}" class="btn btn-default btn-sm btn-sign">SIGN IN</a>
+				          <a href="{% url 'join' %}" class="btn btn-default btn-sm btn-register">REGISTER</a>
+						  <a href="{% url 'join' %}" class="btn btn-default btn-sm btn-sign">SIGN IN</a>
 					 </div>
                 <ul class="nav navbar-nav navbar-right">
 				      
@@ -166,7 +155,7 @@
                         <a href="#portfolio">OPEN DAY</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="{{ Scholarship_url }}">FUNDING</a>
+                        <a href="{% url 'scholarship' %}">FUNDING</a>
                     </li>
                 </ul>
             </div>
@@ -557,32 +546,32 @@
 				   <div class="col-xs-5 sub-footer">
 				       <ul>
 					    <h5>ACCOUNT</h5>
-						<li><p><a>Sign in</a></p></li>
-						<li><p><a>Register</a></p></li>
-						<li><p><a>Password reset</a></p></li>
+						<li><p><a href="{% url 'join' %}">Sign in</a></p></li>
+						<li><p><a href="{% url 'join' %}">Register</a></p></li>
+						<li><p><a href="{% url 'passwordResset' %}">Password reset</a></p></li>
 				       </ul>
 					    <ul>
 					   <h5>INFORMATION</h5>
 						<li><p><a>Open day</a></p></li>
-						<li><p><a>Funding</a></p></li>
+						<li><p><a href="{% url 'scholarship' %}">Funding</a></p></li>
 						<li><p><a>Blog</a></p></li>
 						<li><p><a>Reviews </a></p></li>
-						<li><p><a>Prospectus</a></p></li>
-						<li><p><a>Universities</a></p></li>
+						<li><p><a href="{% url 'prospectus' %}">Prospectus</a></p></li>
+						<li><p><a href="{% url 'uni' %}">Universities</a></p></li>
 				       </ul>
 				   </div>
 				   <div class="col-xs-5 sub-footer">
 				       <ul>
 					    <h5>SERVICES</h5>
-						<li><p><a>Contact </a></p></li>
+						<li><p><a href="{% url 'contactForm' %}">Contact </a></p></li>
 						<li><p><a>FAQ</a></p></li>
 						<li><p><a>Advertise</a></p></li>
 				       </ul>
 				        <ul>
 						<h5>POLICIES</h5>
-						<li><p><a>Privacy policy </a></p></li>
-						<li><p><a>Data & Cookie policy</a></p></li>
-						<li><p><a>Terms & Conditions</a></p></li>
+						<li><p><a href="{% url 'privacyPolicy' %}">Privacy policy </a></p></li>
+						<li><p><a href="{% url 'cookiePolicy' %}">Data & Cookie policy</a></p></li>
+						<li><p><a href="{% url 'termsOfService' %}">Terms & Conditions</a></p></li>
 				       </ul>
 					   <ul>
 						<h5>ABOUT US</h5>
