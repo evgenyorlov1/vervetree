@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% url 'pages:index' as index_url %}
+{% url 'pages:UniConnect' as UniConnect_url %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +63,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
+                <a class="navbar-brand" href="{{ index_url }}"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -100,7 +102,7 @@
 							 <div class="col-sm-12" style="text-align: center;"><h3>CONTACT PAGE</h3></div>
 									<div class="panel-body" style="text-align: center;">
 									 <p>Complete this form for any questions, enquiries or feedback relating to the use of this website. We are happy to hear from you!</p>
-									 <p>*If you are a course provider or university representative, contact us using <a href="UniConnect.html" style="border-bottom: 2px solid; text-decoration: none;">‘this form’</a></p>
+									 <p>*If you are a course provider or university representative, contact us using <a href="{{ UniConnect_url }}" style="border-bottom: 2px solid; text-decoration: none;">‘this form’</a></p>
 									</div>		
 							</div>
 					</div>
