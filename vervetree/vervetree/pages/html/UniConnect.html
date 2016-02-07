@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,28 +13,28 @@
     <title>Unicatalogue</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'pages/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/unicatalogue.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/light.css"  />
-	<link rel="stylesheet" href="css/dark.css"  />
-	<link rel="stylesheet" href="css/transparent.css"  />
-	<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-	<link rel="stylesheet" type="text/css" href="css/videoGallery_buttons.css" />
+    <link href="{% static 'pages/css/unicatalogue.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'pages/css/light.css' %}"  />
+	<link rel="stylesheet" href="{% static 'pages/css/dark.css' %}"  />
+	<link rel="stylesheet" href="{% static 'pages/css/transparent.css' %}"  />
+	<link rel="stylesheet" type="text/css" href="{% static 'pages/css/jquery.jscrollpane.css' %}" media="all" />
+	<link rel="stylesheet" type="text/css" href="{% static 'pages/css/font-awesome.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'pages/css/videoGallery_buttons.css' %}" />
 	
 	
-	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/jquery.address.js"></script><!-- deeplink -->
-	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script><!-- scroll -->
-	<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script><!-- scroll -->
-	<script type="text/javascript" src="js/froogaloop2.min.js"></script><!-- vimeo -->
-	<script type="text/javascript" src="js/jquery.dotdotdot-1.5.1.js"></script><!-- description shortener -->
-	<script type="text/javascript" src="js/jquery.aprvp.min.js"></script>
+	<script type="text/javascript" src="{% static 'pages/js/jquery-1.11.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'pages/js/jquery.address.js' %}"></script><!-- deeplink -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.mousewheel.min.js' %}"></script><!-- scroll -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.jscrollpane.min.js' %}"></script><!-- scroll -->
+	<script type="text/javascript" src="{% static 'pages/js/froogaloop2.min.js' %}"></script><!-- vimeo -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.dotdotdot-1.5.1.js' %}"></script><!-- description shortener -->
+	<script type="text/javascript" src="{% static 'pages/js/jquery.aprvp.min.js' %}"></script>
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'pages/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	
@@ -60,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img class="img-responsive" src="img/Uni_Catalogue_logo_final.png"/></a>
+                <a class="navbar-brand" href="index.html"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -105,7 +106,7 @@
 							</div>
 					</div>
 			 <div class="col-lg-12 col-study">
-			 <h3 class="no-span" style="width:100%"><img class="img-responsive" src="img/URC.png"/></h3>
+			 <h3 class="no-span" style="width:100%"><img class="img-responsive" src="{% static 'pages/img/URC.png' %}"/></h3>
 			         <div class="col-lg-6">
 							<div class="panel panel-default" style="color:#222; background: #fff;"> 
 									<div class="panel-body">
@@ -159,7 +160,7 @@
 					<div class="col-lg-6">	
 						    <div class="panel panel-default" style="color:#222; background: #fff;">
 									 <div class="panel-body">
-										  <img class="img-responsive" src="img/georgetownuniversity.jpg"/>
+										  <img class="img-responsive" src="{% static 'pages/img/georgetownuniversity.jpg' %}"/>
 									 </div>
 									 <div class="panel-body">
 											 <div class="col-lg-6">
@@ -173,10 +174,10 @@
 											 </div>
 											 <div class="col-lg-6">
 												  <ul style="list-style-type: none;">
-												  <li><img class="img-responsive img-contact-details" src="img/1.telephone.png"/>Tel: 888 888 888</li>
-												  <li><img class="img-responsive img-contact-details" src="img/contact-skype.png"/> Skype ID</li>
-												  <li><img class="img-responsive img-contact-details" src="img/3.mail.png"/> uniconnect@mail.com</li>
-												  <li><img class="img-responsive img-contact-details" src="img/5.facebook.png"/> facebook.com/profile</li>
+												  <li><img class="img-responsive img-contact-details" src="{% static 'pages/img/1.telephone.png' %}"/>Tel: 888 888 888</li>
+												  <li><img class="img-responsive img-contact-details" src="{% static 'pages/img/contact-skype.png' %}"/> Skype ID</li>
+												  <li><img class="img-responsive img-contact-details" src="{% static 'pages/img/3.mail.png' %}"/> uniconnect@mail.com</li>
+												  <li><img class="img-responsive img-contact-details" src="{% static 'pages/img/5.facebook.png' %}"/> facebook.com/profile</li>
 												  </ul>
 											 </div>
 									 </div>
@@ -193,7 +194,7 @@
 			<div class="col-lg-12 col-footer">
 				<div class="row row-main">	
 				   <div class="col-sm-2 col-xs-2">
-				    <img class="img-responsive" src="img/unicatalogue-transparent-vertical.png"/>
+				    <img class="img-responsive" src="{% static 'pages/img/unicatalogue-transparent-vertical.png' %}"/>
 				   </div>
 				   <div class="col-sm-3 col-xs-3 sub-footer sub-footer-first">
 				       <ul>
@@ -237,7 +238,7 @@
 			<div class="col-lg-12 col-footer col-footer-mobile">
 				<div class="row row-main">	
 				   <div class="col-sm-2 col-xs-2">
-				    <img class="img-responsive" src="img/unicatalogue-transparent-vertical.png"/>
+				    <img class="img-responsive" src="{% static 'pages/img/unicatalogue-transparent-vertical.png' %}"/>
 				   </div>
 				   <div class="col-xs-5 sub-footer">
 				       <ul>
@@ -282,22 +283,22 @@
     
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="{% static 'pages/js/jquery.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'pages/js/bootstrap.min.js' %}"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'pages/js/classie.js' %}"></script>
+    <script src="{% static 'pages/js/cbpAnimatedHeader.js' %}"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="{% static 'pages/js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'pages/js/contact_me.js' %}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/unicatalogue.js"></script>
+    <script src="{% static 'pages/js/unicatalogue.js' %}"></script>
 
 </body>
 
