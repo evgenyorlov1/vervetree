@@ -149,7 +149,7 @@
                         <a href="#portfolio">COURSES</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">UNIVERSITIES</a>
+                        <a href="{% url 'uni' %}">UNIVERSITIES</a>
                     </li>
 					<li class="page-scroll">
                         <a href="#portfolio">OPEN DAY</a>
@@ -502,13 +502,13 @@
 				   <div class="col-sm-3 col-xs-3 sub-footer sub-footer-first">
 				       <ul>
 					    <h5>ACCOUNT</h5>
-						<li><p><a>Sign in</a></p></li>
-						<li><p><a>Register</a></p></li>
-						<li><p><a>Password reset</a></p></li>
+						<li><p><a href="{% url 'join' %}">Sign in</a></p></li>
+						<li><p><a href="{% url 'join' %}">Register</a></p></li>
+						<li><p><a href="{% url 'passwordResset' %}">Password reset</a></p></li>
 				       </ul>
 					   <ul>
 					    <h5>SERVICES</h5>
-						<li><p><a>Contact </a></p></li>
+						<li><p><a href="{% url 'contactForm' %}">Contact </a></p></li>
 						<li><p><a>FAQ</a></p></li>
 						<li><p><a>Advertise</a></p></li>
 				       </ul>
@@ -517,19 +517,19 @@
 				       <ul>
 					   <h5>INFORMATION</h5>
 						<li><p><a>Open day</a></p></li>
-						<li><p><a>Funding</a></p></li>
+						<li><p><a href="{% url 'scholarship' %}">Funding</a></p></li>
 						<li><p><a>Blog</a></p></li>
 						<li><p><a>Reviews </a></p></li>
-						<li><p><a>Prospectus</a></p></li>
-						<li><p><a>Universities</a></p></li>
+						<li><p><a href="{% url 'prospectus' %}">Prospectus</a></p></li>
+						<li><p><a href="{% url 'uni' %}">Universities</a></p></li>
 				       </ul>
 				   </div>
 				   <div class="col-sm-4 col-xs-4 sub-footer sub-footer-last">
 				        <ul>
 						<h5>POLICIES</h5>
-						<li><p><a>Privacy policy </a></p></li>
-						<li><p><a>Data & Cookie policy</a></p></li>
-						<li><p><a>Terms & Conditions</a></p></li>
+						<li><p><a href="{% url 'privacyPolicy' %}">Privacy policy </a></p></li>
+						<li><p><a href="{% url 'cookiePolicy' %}">Data & Cookie policy</a></p></li>
+						<li><p><a href="{% url 'termsOfService' %}">Terms & Conditions</a></p></li>
 				       </ul>
 					   <ul>
 						<h5>ABOUT US</h5>

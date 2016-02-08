@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% url 'pages:index' as index_url %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,28 +61,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ index_url }}"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
+                <a class="navbar-brand" href="{% url 'index' %}"><img class="img-responsive" src="{% static 'pages/img/Uni_Catalogue_logo_final.png' %}"/></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<div class="top-links">
-				          <a href="#" class="btn btn-default btn-sm btn-register">REGISTER</a>
-						  <a href="#" class="btn btn-default btn-sm btn-sign">SIGN IN</a>       
+				          <a href="{% url 'join' %}" class="btn btn-default btn-sm btn-register">REGISTER</a>
+						  <a href="{% url 'join' %}" class="btn btn-default btn-sm btn-sign">SIGN IN</a>
 					 </div>
                 <ul class="nav navbar-nav navbar-right">
-				      
+
 					<li class="page-scroll">
                         <a href="#portfolio">COURSES</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">UNIVERSITIES</a>
+                        <a href="{% url 'uni' %}">UNIVERSITIES</a>
                     </li>
 					<li class="page-scroll">
                         <a href="#portfolio">OPEN DAY</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">FUNDING</a>
+                        <a href="{% url 'scholarship' %}">FUNDING</a>
                     </li>
                 </ul>
             </div>
@@ -232,40 +231,40 @@
 			<!-- Footer-->
 			<div class="col-lg-12 col-footer">
 				<div class="row row-main">	
-				   <div class="col-lg-2">
+				   <div class="col-sm-2 col-xs-2">
 				    <img class="img-responsive" src="{% static 'pages/img/unicatalogue-transparent-vertical.png' %}"/>
 				   </div>
-				   <div class="col-lg-3 sub-footer">
+				   <div class="col-sm-3 col-xs-3 sub-footer sub-footer-first">
 				       <ul>
 					    <h5>ACCOUNT</h5>
-						<li><p><a>Sign in</a></p></li>
-						<li><p><a>Register</a></p></li>
-						<li><p><a>Password reset</a></p></li>
+						<li><p><a href="{% url 'join' %}">Sign in</a></p></li>
+						<li><p><a href="{% url 'join' %}">Register</a></p></li>
+						<li><p><a href="{% url 'passwordResset' %}">Password reset</a></p></li>
 				       </ul>
 					   <ul>
 					    <h5>SERVICES</h5>
-						<li><p><a>Contact </a></p></li>
+						<li><p><a href="{% url 'contactForm' %}">Contact </a></p></li>
 						<li><p><a>FAQ</a></p></li>
 						<li><p><a>Advertise</a></p></li>
 				       </ul>
 				   </div>
-				   <div class="col-lg-3 sub-footer">
+				   <div class="col-sm-3 col-xs-3 sub-footer">
 				       <ul>
 					   <h5>INFORMATION</h5>
 						<li><p><a>Open day</a></p></li>
-						<li><p><a>Funding</a></p></li>
+						<li><p><a href="{% url 'scholarship' %}">Funding</a></p></li>
 						<li><p><a>Blog</a></p></li>
 						<li><p><a>Reviews </a></p></li>
-						<li><p><a>Prospectus</a></p></li>
-						<li><p><a>Universities</a></p></li>
+						<li><p><a href="{% url 'prospectus' %}">Prospectus</a></p></li>
+						<li><p><a href="{% url 'uni' %}">Universities</a></p></li>
 				       </ul>
 				   </div>
-				   <div class="col-lg-4 sub-footer">
+				   <div class="col-sm-4 col-xs-4 sub-footer sub-footer-last">
 				        <ul>
 						<h5>POLICIES</h5>
-						<li><p><a>Privacy policy </a></p></li>
-						<li><p><a>Data & Cookie policy</a></p></li>
-						<li><p><a>Terms & Conditions</a></p></li>
+						<li><p><a href="{% url 'privacyPolicy' %}">Privacy policy </a></p></li>
+						<li><p><a href="{% url 'cookiePolicy' %}">Data & Cookie policy</a></p></li>
+						<li><p><a href="{% url 'termsOfService' %}">Terms & Conditions</a></p></li>
 				       </ul>
 					   <ul>
 						<h5>ABOUT US</h5>
@@ -273,12 +272,49 @@
 				       </ul>
 				   </div>
 				</div>
-				 <div class="col-lg-12 text-center">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/google" title="Google">Google</a>, 
-				<a href="http://www.flaticon.com/authors/plainicon" title="Plainicon">Plainicon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
-				is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
 			</div>
-        </div>
- 
+			<div class="col-lg-12 col-footer col-footer-mobile">
+				<div class="row row-main">
+				   <div class="col-sm-2 col-xs-2">
+				    <img class="img-responsive" src="{% static 'pages/img/unicatalogue-transparent-vertical.png' %}"/>
+				   </div>
+				   <div class="col-xs-5 sub-footer">
+				       <ul>
+					    <h5>ACCOUNT</h5>
+						<li><p><a href="{% url 'join' %}">Sign in</a></p></li>
+						<li><p><a href="{% url 'join' %}">Register</a></p></li>
+						<li><p><a href="{% url 'passwordResset' %}">Password reset</a></p></li>
+				       </ul>
+					    <ul>
+					   <h5>INFORMATION</h5>
+						<li><p><a>Open day</a></p></li>
+						<li><p><a href="{% url 'scholarship' %}">Funding</a></p></li>
+						<li><p><a>Blog</a></p></li>
+						<li><p><a>Reviews </a></p></li>
+						<li><p><a href="{% url 'prospectus' %}">Prospectus</a></p></li>
+						<li><p><a href="{% url 'uni' %}">Universities</a></p></li>
+				       </ul>
+				   </div>
+				   <div class="col-xs-5 sub-footer">
+				       <ul>
+					    <h5>SERVICES</h5>
+						<li><p><a href="{% url 'contactForm' %}">Contact </a></p></li>
+						<li><p><a>FAQ</a></p></li>
+						<li><p><a>Advertise</a></p></li>
+				       </ul>
+				        <ul>
+						<h5>POLICIES</h5>
+						<li><p><a href="{% url 'privacyPolicy' %}">Privacy policy </a></p></li>
+						<li><p><a href="{% url 'cookiePolicy' %}">Data & Cookie policy</a></p></li>
+						<li><p><a href="{% url 'termsOfService' %}">Terms & Conditions</a></p></li>
+				       </ul>
+					   <ul>
+						<h5>ABOUT US</h5>
+						<li><p><a>Our Company</a></p></li>
+				       </ul>
+				   </div>
+				</div>
+			</div>
 
     
 
